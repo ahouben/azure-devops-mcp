@@ -1,15 +1,15 @@
 {
-  "name": "@azure-devops/mcp",
-  "version": "2.4.0",
-  "mcpName": "microsoft.com/azure-devops",
-  "description": "MCP server for interacting with Azure DevOps",
+  "name": "@ahouben/azure-devops-mcp",
+  "version": "2.4.101",
+  "mcpName": "ahouben/azure-devops-mcp",
+  "description": "MCP server for interacting with Azure DevOps (with on-premises / TFS support)",
   "license": "MIT",
-  "author": "Microsoft Corporation",
-  "homepage": "https://github.com/microsoft/azure-devops-mcp",
-  "bugs": "https://github.com/microsoft/azure-devops-mcp/issues",
+  "author": "Alexander Houben",
+  "homepage": "https://github.com/ahouben/azure-devops-mcp",
+  "bugs": "https://github.com/ahouben/azure-devops-mcp/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/microsoft/azure-devops-mcp.git"
+    "url": "https://github.com/ahouben/azure-devops-mcp.git"
   },
   "type": "module",
   "bin": {
