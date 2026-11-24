@@ -3,6 +3,7 @@
 
 import { describe, expect, it, beforeEach } from "@jest/globals";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { BasicAuthenticationFactory } from "../../../src/shared/basic-authentication-factory";
 import { WebApi } from "azure-devops-node-api";
 import { StageUpdateType } from "azure-devops-node-api/interfaces/BuildInterfaces.js";
 import { configurePipelineTools } from "../../../src/tools/pipelines";
@@ -78,7 +79,7 @@ describe("configurePipelineTools", () => {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": "Bearer mock-token",
+          "Authorization": BasicAuthenticationFactory.create("mock-token"),
           "User-Agent": "Jest",
         },
         body: JSON.stringify({
@@ -121,7 +122,7 @@ describe("configurePipelineTools", () => {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": "Bearer mock-token",
+          "Authorization": BasicAuthenticationFactory.create("mock-token"),
           "User-Agent": "Jest",
         },
         body: JSON.stringify({
@@ -158,7 +159,7 @@ describe("configurePipelineTools", () => {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": "Bearer mock-token",
+          "Authorization": BasicAuthenticationFactory.create("mock-token"),
           "User-Agent": "Jest",
         },
         body: JSON.stringify({

@@ -9,6 +9,18 @@ import { WebApi } from "azure-devops-node-api";
 type TokenProviderMock = () => Promise<string>;
 type ConnectionProviderMock = () => Promise<WebApi>;
 
+jest.mock("../../../src/shared/server-context.js", () => ({
+  buildAuthorizationHeader: jest.fn((token: string) => `Bearer ${token}`),
+  getServerContext: jest.fn(() => ({
+    orgUrl: "https://dev.azure.com/test-org",
+    orgName: "test-org",
+    serverUrl: "https://dev.azure.com/test-org",
+    isOnPremise: false,
+    isPATAuth: false,
+  })),
+  isOnPremiseServer: jest.fn(() => false),
+}));
+
 interface CoreApiMock {
   getTeams: jest.Mock;
   getProjects: jest.Mock;

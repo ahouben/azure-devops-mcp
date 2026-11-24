@@ -3,6 +3,7 @@
 
 import { describe, expect, it } from "@jest/globals";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { BasicAuthenticationFactory } from "../../../src/shared/basic-authentication-factory";
 import { configureWorkItemTools } from "../../../src/tools/work-items";
 import { WebApi } from "azure-devops-node-api";
 import { QueryExpand } from "azure-devops-node-api/interfaces/WorkItemTrackingInterfaces.js";
@@ -739,7 +740,7 @@ describe("configureWorkItemTools", () => {
         expect.objectContaining({
           method: "POST",
           headers: expect.objectContaining({
-            "Authorization": "Bearer fake-token",
+            "Authorization": BasicAuthenticationFactory.create("fake-token"),
             "Content-Type": "application/json",
           }),
         })
@@ -780,7 +781,7 @@ describe("configureWorkItemTools", () => {
         expect.objectContaining({
           method: "POST",
           headers: expect.objectContaining({
-            "Authorization": "Bearer fake-token",
+            "Authorization": BasicAuthenticationFactory.create("fake-token"),
             "Content-Type": "application/json",
           }),
         })
@@ -1659,7 +1660,7 @@ describe("configureWorkItemTools", () => {
         expect.objectContaining({
           method: "PATCH",
           headers: expect.objectContaining({
-            "Authorization": "Bearer fake-token",
+            "Authorization": BasicAuthenticationFactory.create("fake-token"),
             "Content-Type": "application/json",
           }),
           body: JSON.stringify(expectedBody),
@@ -1729,7 +1730,7 @@ describe("configureWorkItemTools", () => {
         expect.objectContaining({
           method: "PATCH",
           headers: expect.objectContaining({
-            "Authorization": "Bearer fake-token",
+            "Authorization": BasicAuthenticationFactory.create("fake-token"),
             "Content-Type": "application/json",
           }),
           body: JSON.stringify(expectedBody),
@@ -1807,7 +1808,7 @@ describe("configureWorkItemTools", () => {
         expect.objectContaining({
           method: "PATCH",
           headers: expect.objectContaining({
-            "Authorization": "Bearer fake-token",
+            "Authorization": BasicAuthenticationFactory.create("fake-token"),
             "Content-Type": "application/json",
           }),
         })
@@ -2433,7 +2434,7 @@ describe("configureWorkItemTools", () => {
         expect.objectContaining({
           method: "PATCH",
           headers: expect.objectContaining({
-            "Authorization": "Bearer fake-token",
+            "Authorization": BasicAuthenticationFactory.create("fake-token"),
             "Content-Type": "application/json",
           }),
           body: expect.stringContaining("TestProject\\\\Area1"),

@@ -7,6 +7,7 @@ import { WebApi } from "azure-devops-node-api";
 import { BuildQueryOrder, DefinitionQueryOrder } from "azure-devops-node-api/interfaces/BuildInterfaces.js";
 import { z } from "zod";
 import { StageUpdateType } from "azure-devops-node-api/interfaces/BuildInterfaces.js";
+import { BasicAuthenticationFactory } from "../shared/basic-authentication-factory.js";
 import { ConfigurationType, RepositoryType } from "azure-devops-node-api/interfaces/PipelinesInterfaces.js";
 import { mkdirSync, createWriteStream } from "fs";
 import { join, resolve } from "path";
@@ -493,7 +494,7 @@ function configurePipelineTools(server: McpServer, tokenProvider: () => Promise<
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`,
+          "Authorization": BasicAuthenticationFactory.create(token),
           "User-Agent": userAgentProvider(),
         },
         body: JSON.stringify(body),
