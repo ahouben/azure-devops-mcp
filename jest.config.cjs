@@ -52,5 +52,6 @@ module.exports = {
     "^(.+)/auth\\.js$": "$1/auth.ts",
     "^(.+)/server-context\\.js$": "$1/server-context.ts",
     "^(.+)/logger\\.js$": "$1/logger.ts",
+    "^(.+)/basic-authentication-factory\\.js$": "$1/basic-authentication-factory.ts",
   },
 };
